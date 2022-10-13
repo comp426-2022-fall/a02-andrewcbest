@@ -18,6 +18,16 @@ if (args.h){
     show_help();
 }
 
+// read in day
+if (args.d){
+  console.log("hi");
+  days = args.d;
+}
+
+if(args.d == 0){
+  days = 0;
+}
+
 // read in coordinate
 if(args.n){
   latitude = args.n;
@@ -31,14 +41,17 @@ if(args.e){
 if(args.w){
   longitude = args.w;
 }
-// read in day
-if(args.d){
-  days = args.d 
-}
+
 // read in timezone
 if(args.z){
-  timezone = args.z
+  timezone = args.z;
 }
+
+if(args.t){
+  timezone = args.t;
+}
+
+
 
 // get data from API
 const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + latitude + '&longitude=' + longitude + '&daily=precipitation_hours&temperature_unit=fahrenheit&timezone=' + timezone);
@@ -51,12 +64,13 @@ if (args.j){
 }
 
 // print day
+console.log(days)
 if (days == 0) {
-  console.log("Today:")
+  console.log("today.")
 } else if (days > 1) {
-  console.log("In " + days + "Days:")
+  console.log("in " + days + "days.")
 } else {
-  console.log("Tomorrow:")
+  console.log("tomorrow.")
 }
 
 // print whether you need galoshes
