@@ -30,15 +30,38 @@ if(args.d == 0){
 
 // read in coordinate
 if(args.n){
-  latitude = args.n;
+  // chek if valid
+  if(args.n < 0){
+    console.log("Latitude must be in range")
+    process.exit(0)
+  }
+
+  latitude = Math.round((args.n * 100)/100)
 }
 if(args.s){
-  latitude = -args.s;
+  //check if valid
+  if(args.s > 0){
+    console.log("Latitude must be in range")
+    process.exit(0)
+  }
+
+  latitude = Math.round((-args.s * 100) / 100);
+
 }
 if(args.e){
+  //check if valid
+  if(args.e < 0){
+    console.log("Longitude must be in range")
+    process.exit(0)
+  }
   longitude = args.e;
 }
 if(args.w){
+  //check if valid
+  if(args.w < 0){
+    console.log("Longitude must be in range")
+    process.exit(0)
+  }
   longitude = args.w;
 }
 
