@@ -37,7 +37,7 @@ if(args.n){
   }
 }
 if(args.s){
-  latitude = Number(args.s).toFixed(2)
+  latitude = -(Number(args.s).toFixed(2))
   //check if valid
   if(latitude < -90 ||latitude > 0){
     console.log("Latitude must be in range")
@@ -57,7 +57,7 @@ if(args.e){
   
 }
 if(args.w){
-  longitude = Number(args.w).toFixed(2)
+  longitude = -(Number(args.w).toFixed(2))
   //check if valid
   if(longitude >  0 || longitude < -180){
     console.log("Longitude must be in range")
@@ -88,7 +88,6 @@ if (args.j){
 }
 
 // print day
-console.log(days)
 if (days == 0) {
   console.log("today.")
 } else if (days > 1) {
