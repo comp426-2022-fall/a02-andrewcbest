@@ -20,7 +20,6 @@ if (args.h){
 
 // read in day
 if (args.d){
-  console.log("hi");
   days = args.d;
 }
 
@@ -30,39 +29,40 @@ if(args.d == 0){
 
 // read in coordinate
 if(args.n){
-  // chek if valid
-  if(args.n < 0){
+  latitude = Number(args.n).toFixed(2)
+  //check if valid
+  if(latitude > 90 || latitude < 0){
     console.log("Latitude must be in range")
     process.exit(0)
   }
-
-  latitude = Math.round((args.n * 100)/100)
 }
 if(args.s){
+  latitude = Number(args.s).toFixed(2)
   //check if valid
-  if(args.s > 0){
+  if(latitude < -90 ||latitude > 0){
     console.log("Latitude must be in range")
     process.exit(0)
   }
 
-  latitude = Math.round((-args.s * 100) / 100);
+
 
 }
 if(args.e){
+  longitude = Number(args.e).toFixed(2)
   //check if valid
-  if(args.e < 0){
+  if(longitude < 0 || longitude > 180){
     console.log("Longitude must be in range")
     process.exit(0)
   }
-  longitude = args.e;
+  
 }
 if(args.w){
+  longitude = Number(args.w).toFixed(2)
   //check if valid
-  if(args.w < 0){
+  if(longitude >  0 || longitude < -180){
     console.log("Longitude must be in range")
     process.exit(0)
   }
-  longitude = args.w;
 }
 
 // read in timezone
