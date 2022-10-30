@@ -29,41 +29,31 @@ if(args.d == 0){
 
 // read in coordinate
 if(args.n){
-  latitude = Number(args.n).toFixed(2)
-  //check if valid
-  if(latitude > 90 || latitude < 0){
-    console.log("Latitude must be in range")
-    process.exit(0)
+  latitude = args.n
+}
+else{
+  if(args.s){
+    latitude = -args.s
+  }
+  else{
+    console.log("Latitude must be in range.")
+    process.exit(0);
   }
 }
-if(args.s){
-  latitude = -(Number(args.s).toFixed(2))
-  //check if valid
-  if(latitude < -90 ||latitude > 0){
-    console.log("Latitude must be in range")
-    process.exit(0)
-  }
 
-
-
-}
 if(args.e){
-  longitude = Number(args.e).toFixed(2)
-  //check if valid
-  if(longitude < 0 || longitude > 180){
-    console.log("Longitude must be in range")
-    process.exit(0)
-  }
-  
+  longitude = args.e
 }
-if(args.w){
-  longitude = -(Number(args.w).toFixed(2))
-  //check if valid
-  if(longitude >  0 || longitude < -180){
-    console.log("Longitude must be in range")
-    process.exit(0)
+else{
+  if(args.w){
+    longitude = -args.w
+  }
+  else{
+    console.log("Longitude must be in range.")
+    process.exit(0);
   }
 }
+
 
 // read in timezone
 if(args.z){
